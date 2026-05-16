@@ -1,0 +1,42 @@
+<section id="skills" class="py-28 px-6 bg-[#080810]">
+  <div class="max-w-6xl mx-auto">
+
+    <div class="text-center mb-16">
+      <p
+        viewportAnimation
+        [viewportConfig]="{ animation: 'fadeIn', duration: 0.5 }"
+        class="text-[#7C6FF7] text-sm font-semibold tracking-widest uppercase mb-4">
+        Technical skills
+      </p>
+      <h2
+        viewportAnimation
+        [viewportConfig]="{ animation: 'slideUp', duration: 0.7, delay: 0.1 }"
+        class="font-display text-4xl md:text-5xl font-bold">
+        What I <span class="gradient-text">work with</span>
+      </h2>
+    </div>
+
+    <div
+      viewportAnimation
+      [viewportConfig]="{ animation: 'fadeIn', stagger: 0.1, staggerTarget: '.skill-card', duration: 0.6 }"
+      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      @for (cat of categories; track cat.name) {
+        <div class="skill-card glass-card p-6 hover:border-white/15 transition-all duration-300 hover:-translate-y-1 group">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="text-2xl">{{ cat.icon }}</span>
+            <h3 class="font-display font-semibold text-lg" [style.color]="cat.color">
+              {{ cat.name }}
+            </h3>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            @for (skill of cat.skills; track skill) {
+              <span class="px-3 py-1 rounded-full text-xs font-medium bg-white/5 text-[#9D9CB8] border border-white/8 group-hover:border-white/12 transition-colors">
+                {{ skill }}
+              </span>
+            }
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>

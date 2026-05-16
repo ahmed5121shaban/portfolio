@@ -1,0 +1,52 @@
+<header
+  [ngClass]="scrolled() ? 'bg-[#080810]/90 backdrop-blur-md border-b border-white/5 shadow-lg' : 'bg-transparent'"
+  class="fixed top-0 left-0 right-0 z-50 transition-all duration-500">
+  <nav class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+
+    <a href="#" class="font-display font-bold text-xl tracking-tight">
+      <span class="gradient-text">AS</span>
+      <span class="text-[#F0EFFF] ml-2 font-light text-sm">Ahmed Shaban</span>
+    </a>
+
+    <ul class="hidden md:flex items-center gap-8">
+      @for (link of navLinks; track link.href) {
+        <li>
+          <button
+            (click)="scrollTo(link.href)"
+            class="text-[#9D9CB8] hover:text-[#F0EFFF] text-sm font-medium transition-colors duration-200 cursor-pointer">
+            {{ link.label }}
+          </button>
+        </li>
+      }
+    </ul>
+
+    <a
+      href="mailto:ahmed01shaban@gmail.com"
+      class="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-[#7C6FF7] hover:bg-[#5A52D5] text-white text-sm font-medium transition-colors duration-200">
+      Hire me
+    </a>
+
+    <button
+      (click)="menuOpen.set(!menuOpen())"
+      class="md:hidden flex flex-col gap-1.5 p-2"
+      aria-label="Toggle menu">
+      <span [ngClass]="menuOpen() ? 'rotate-45 translate-y-2' : ''" class="block w-5 h-0.5 bg-[#F0EFFF] transition-transform duration-300"></span>
+      <span [ngClass]="menuOpen() ? 'opacity-0' : ''" class="block w-5 h-0.5 bg-[#F0EFFF] transition-opacity duration-300"></span>
+      <span [ngClass]="menuOpen() ? '-rotate-45 -translate-y-2' : ''" class="block w-5 h-0.5 bg-[#F0EFFF] transition-transform duration-300"></span>
+    </button>
+  </nav>
+
+  @if (menuOpen()) {
+    <div class="md:hidden bg-[#0E0E1A]/95 backdrop-blur-md border-t border-white/5 px-6 py-6 flex flex-col gap-5">
+      @for (link of navLinks; track link.href) {
+        <button (click)="scrollTo(link.href)" class="text-[#9D9CB8] hover:text-[#F0EFFF] text-base font-medium text-left transition-colors">
+          {{ link.label }}
+        </button>
+      }
+      <a href="mailto:ahmed01shaban@gmail.com"
+        class="mt-2 inline-flex justify-center px-4 py-2.5 rounded-lg bg-[#7C6FF7] text-white text-sm font-medium">
+        Hire me
+      </a>
+    </div>
+  }
+</header>
