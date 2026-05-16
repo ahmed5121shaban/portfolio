@@ -28,6 +28,15 @@ export class HeroComponent implements OnInit {
     { label: 'Architecture', value: 'Multi-tenant SaaS, OAuth2/OIDC, RBAC', tone: '#f59e0b' },
   ];
 
+  studioTiles = [
+    { title: 'SaaS', caption: 'Tenant isolation', tone: '#7c6ff7' },
+    { title: 'APIs', caption: 'Clean contracts', tone: '#22d3a5' },
+    { title: 'LIMS', caption: 'Enterprise labs', tone: '#f59e0b' },
+    { title: 'ZATCA', caption: 'Phase 2 ready', tone: '#f43f5e' },
+    { title: 'CI/CD', caption: 'Azure DevOps', tone: '#38bdf8' },
+    { title: 'RBAC', caption: 'OpenIddict', tone: '#a78bfa' },
+  ];
+
   ngOnInit() {
     this.isBrowser = isPlatformBrowser(this.platformId);
     if (this.isBrowser) {

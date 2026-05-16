@@ -10,8 +10,8 @@
       <h2
         viewportAnimation
         [viewportConfig]="{ animation: 'slideUp', duration: 0.7, delay: 0.1 }"
-        class="font-display text-4xl md:text-5xl font-bold">
-        Work <span class="gradient-text">experience</span>
+        class="font-display text-4xl md:text-6xl font-bold leading-[0.98]">
+        Work history as a <span class="gradient-text">release timeline</span>
       </h2>
     </div>
 
@@ -32,7 +32,7 @@
             </div>
 
             <div [class]="i % 2 === 0 ? 'md:order-1' : 'md:order-2'">
-              <div class="glass-card spotlight-card p-6 hover:-translate-y-1">
+              <div class="cinema-shell spotlight-card p-6 hover:-translate-y-1 transition-transform duration-300">
                 <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-5">
                   <div>
                     <h3 class="font-display font-semibold text-xl text-[#f7f8ff]">{{ exp.role }}</h3>
@@ -91,7 +91,7 @@
           <div
             viewportAnimation
             [viewportConfig]="{ animation: 'slideUp', duration: 0.5 }"
-            class="glass-card p-5 hover:-translate-y-1">
+            class="glass-card spotlight-card p-5 hover:-translate-y-1">
             <h4 class="font-medium text-[#f7f8ff] mb-1">{{ t.name }}</h4>
             <p class="text-[#7c6ff7] text-sm mb-1">{{ t.org }}</p>
             <p class="text-[#a8adbd] text-xs">{{ t.period }}</p>

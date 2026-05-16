@@ -29,7 +29,12 @@ export class App implements OnDestroy {
 
   constructor() {
     afterNextRender(() => {
+      const root = document.documentElement;
+
       const onPointerMove = (event: PointerEvent) => {
+        root.style.setProperty('--pointer-x', `${event.clientX}px`);
+        root.style.setProperty('--pointer-y', `${event.clientY}px`);
+
         const card = (event.target as HTMLElement).closest<HTMLElement>('.spotlight-card');
 
         if (!card) {
@@ -44,8 +49,18 @@ export class App implements OnDestroy {
         card.style.setProperty('--y', `${y}%`);
       };
 
+      const onScroll = () => {
+        root.style.setProperty('--scroll-y', `${window.scrollY}px`);
+      };
+
       window.addEventListener('pointermove', onPointerMove, { passive: true });
-      this.removeSpotlightListener = () => window.removeEventListener('pointermove', onPointerMove);
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+
+      this.removeSpotlightListener = () => {
+        window.removeEventListener('pointermove', onPointerMove);
+        window.removeEventListener('scroll', onScroll);
+      };
     });
   }
 

@@ -59,6 +59,22 @@ export class ProjectsComponent {
       badgeColor: '#22D3A5',
       accentColor: '#22D3A5'
     },
+    {
+      title: 'Logistics Platform',
+      subtitle: 'MMB Logistics Management',
+      description: 'Full-stack logistics management work focused on scalable APIs, relational models, and Angular operational interfaces.',
+      category: 'Operations',
+      metric: 'Current',
+      tags: ['ASP.NET Core', 'Angular', 'REST APIs', 'Clean Architecture', 'SQL Modeling'],
+      highlights: [
+        'Building logistics workflows with ASP.NET Core and Angular',
+        'Designing relational models and production API boundaries',
+        'Collaborating cross-functionally on scalable operational features',
+      ],
+      badge: 'Current role',
+      badgeColor: '#f59e0b',
+      accentColor: '#f59e0b'
+    },
   ];
 
   get filters() {

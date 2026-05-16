@@ -12,8 +12,8 @@
         <h2
           viewportAnimation
           [viewportConfig]="{ animation: 'slideUp', duration: 0.7, delay: 0.1 }"
-          class="font-display text-4xl md:text-5xl font-bold max-w-2xl">
-          Key <span class="gradient-text">resume projects</span>
+          class="font-display text-4xl md:text-6xl font-bold max-w-3xl leading-[0.98]">
+          Case studies with <span class="gradient-text">cinematic depth</span>
         </h2>
       </div>
 
@@ -29,16 +29,16 @@
       </div>
     </div>
 
-    <div class="grid lg:grid-cols-2 gap-5">
+    <div class="grid lg:grid-cols-3 gap-5">
       @for (project of visibleProjects; track project.title) {
         <button
           viewportAnimation
           [viewportConfig]="{ animation: 'slideUp', duration: 0.6 }"
           (click)="openDetail(project)"
-          class="glass-card spotlight-card p-0 cursor-pointer hover:-translate-y-2 transition-all duration-300 group relative overflow-hidden text-left">
+          class="cinema-shell spotlight-card p-0 cursor-pointer hover:-translate-y-2 transition-all duration-300 group relative overflow-hidden text-left">
 
-          <div class="grid sm:grid-cols-[0.38fr_1fr] min-h-full">
-            <div class="relative min-h-52 bg-white/[0.035] border-b sm:border-b-0 sm:border-r border-white/8 p-6 flex flex-col justify-between overflow-hidden">
+          <div class="grid min-h-full">
+            <div class="relative min-h-64 bg-white/[0.035] border-b border-white/8 p-6 flex flex-col justify-between overflow-hidden scanline">
               <svg viewBox="0 0 220 220" class="absolute inset-0 w-full h-full opacity-75">
                 <circle cx="110" cy="110" r="78" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
                 <circle cx="110" cy="110" r="56" fill="none" [attr.stroke]="project.accentColor" stroke-width="2" class="animate-dash"/>

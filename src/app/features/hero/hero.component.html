@@ -1,25 +1,26 @@
 <section id="hero" class="relative min-h-screen overflow-hidden noise-bg grid-bg bg-[#07080d]">
-  <div class="absolute inset-0 aurora-bg opacity-70"></div>
-  <div class="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#10131b] to-transparent"></div>
+  <div class="absolute inset-0 aurora-bg opacity-85"></div>
+  <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_12%,rgba(255,255,255,0.11),transparent_24%),linear-gradient(180deg,transparent,rgba(7,8,13,0.92)_88%)]"></div>
+  <div class="absolute top-24 left-1/2 h-px w-[72vw] -translate-x-1/2 flow-line"></div>
 
-  <div class="relative z-10 max-w-7xl mx-auto min-h-screen px-6 pt-28 pb-16 grid lg:grid-cols-[1fr_0.86fr] gap-12 items-center">
-    <div class="max-w-3xl">
+  <div class="relative z-10 max-w-7xl mx-auto min-h-screen px-6 pt-28 pb-16 grid xl:grid-cols-[0.92fr_1.08fr] gap-10 items-center">
+    <div class="max-w-4xl">
       <div
         viewportAnimation
         [viewportConfig]="{ animation: 'fadeIn', duration: 0.6 }"
-        class="inline-flex items-center gap-3 px-4 py-2 rounded-lg border border-[#22d3a5]/30 bg-[#22d3a5]/10 text-[#22d3a5] text-sm font-medium mb-7">
+        class="inline-flex items-center gap-3 px-4 py-2 rounded-full border border-white/12 bg-white/[0.055] text-[#f7f8ff] text-sm font-medium mb-7 backdrop-blur-xl">
         <span class="relative flex h-2.5 w-2.5">
           <span class="absolute inline-flex h-full w-full rounded-full bg-[#22d3a5] opacity-75 animate-ping"></span>
           <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#22d3a5]"></span>
         </span>
-        Available for remote full-time and contract roles
+        Full Stack Developer - .NET, Angular, SaaS, integrations
       </div>
 
       <h1
         viewportAnimation
         [viewportConfig]="{ animation: 'slideUp', duration: 0.8, delay: 0.1 }"
-        class="font-display text-5xl sm:text-6xl lg:text-8xl font-bold leading-[0.94] mb-6">
-        Ahmed Shaban builds <span class="gradient-text">enterprise web systems</span>.
+        class="font-display text-5xl sm:text-7xl xl:text-[104px] font-bold leading-[0.88] tracking-normal mb-7">
+        Engineering portfolio for <span class="gradient-text">systems that scale</span>.
       </h1>
 
       <div
@@ -33,8 +34,8 @@
         viewportAnimation
         [viewportConfig]="{ animation: 'fadeIn', duration: 0.7, delay: 0.35 }"
         class="text-[#a8adbd] text-base md:text-lg max-w-2xl leading-relaxed mb-9">
-        Full Stack Developer focused on ASP.NET Core, Angular, ABP Framework, multi-tenant SaaS,
-        clean architecture, CI/CD, and regulated integrations including ZATCA e-invoicing.
+        A cinematic resume experience for Ahmed Shaban: production APIs, Angular interfaces,
+        multi-tenant SaaS, logistics platforms, LIMS, OAuth2/OIDC, CI/CD, and ZATCA e-invoicing.
       </p>
 
       <div
@@ -43,23 +44,20 @@
         class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 mb-10">
         <button
           (click)="scrollToProjects()"
-          class="magnetic-btn inline-flex justify-center items-center gap-2 px-7 py-3.5 rounded-lg bg-[#7c6ff7] hover:bg-[#5a52d5] text-white font-semibold text-base transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_32px_rgba(124,111,247,0.42)] cursor-pointer">
-          View projects
+          class="magnetic-btn inline-flex justify-center items-center gap-2 px-7 py-3.5 rounded-full bg-[#f7f8ff] hover:bg-white text-[#07080d] font-semibold text-base transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_42px_rgba(255,255,255,0.22)] cursor-pointer">
+          Watch the work
           <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
           </svg>
         </button>
         <a
           href="mailto:ahmed01shaban@gmail.com"
-          class="inline-flex justify-center items-center gap-2 px-7 py-3.5 rounded-lg border border-white/10 hover:border-[#22d3a5]/50 text-[#f7f8ff] font-medium text-base transition-all duration-300 hover:bg-[#22d3a5]/10">
-          Get in touch
+          class="inline-flex justify-center items-center gap-2 px-7 py-3.5 rounded-full border border-white/12 bg-white/[0.045] hover:border-[#22d3a5]/50 text-[#f7f8ff] font-medium text-base transition-all duration-300 hover:bg-[#22d3a5]/10">
+          Start a conversation
         </a>
         <button
           (click)="downloadCV()"
-          class="inline-flex justify-center items-center gap-2 px-7 py-3.5 rounded-lg border border-white/10 hover:border-[#f59e0b]/50 text-[#f59e0b] font-medium text-base transition-all duration-300 hover:bg-[#f59e0b]/10 cursor-pointer">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
-          </svg>
+          class="inline-flex justify-center items-center gap-2 px-7 py-3.5 rounded-full border border-white/12 bg-white/[0.045] hover:border-[#f59e0b]/50 text-[#f59e0b] font-medium text-base transition-all duration-300 hover:bg-[#f59e0b]/10 cursor-pointer">
           Download CV
         </button>
       </div>
@@ -69,7 +67,7 @@
         [viewportConfig]="{ animation: 'slideUp', stagger: 0.1, staggerTarget: '.hero-stat', duration: 0.5, delay: 0.55 }"
         class="grid sm:grid-cols-3 gap-3">
         @for (stat of impactStats; track stat.label) {
-          <div class="hero-stat glass-card p-4">
+          <div class="hero-stat glass-card spotlight-card p-4">
             <div class="font-display text-3xl font-bold text-[#f7f8ff]">{{ stat.value }}</div>
             <div class="text-[#a8adbd] text-xs leading-relaxed mt-1">{{ stat.label }}</div>
           </div>
@@ -80,74 +78,51 @@
     <div
       viewportAnimation
       [viewportConfig]="{ animation: 'slideUp', duration: 0.8, delay: 0.25 }"
-      class="relative">
-      <div class="glass-card spotlight-card p-5 md:p-6 overflow-hidden">
-        <div class="flex items-center justify-between gap-4 mb-6">
-          <div>
-            <p class="text-[#7c6ff7] text-xs font-semibold tracking-widest uppercase mb-2">Resume intelligence</p>
-            <h2 class="font-display text-2xl font-bold">Production-ready profile</h2>
-          </div>
-          <a href="assets/Ahmed_Shaban_Full_CV.pdf" target="_blank" rel="noopener"
-            class="shrink-0 inline-flex items-center justify-center w-11 h-11 rounded-lg border border-white/10 text-[#f7f8ff] hover:text-[#22d3a5] hover:border-[#22d3a5]/50 transition-colors"
-            aria-label="Open CV">
-            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 3h7m0 0v7m0-7L10 14m-2-8H5a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-3"/>
-            </svg>
-          </a>
+      class="cinema-shell scanline p-4 md:p-6 depth-float">
+      <div class="flex items-center justify-between gap-4 mb-5">
+        <div>
+          <p class="text-[#22d3a5] text-xs font-semibold tracking-widest uppercase mb-2">Live engineering studio</p>
+          <h2 class="font-display text-2xl md:text-3xl font-bold">Ahmed Shaban</h2>
         </div>
-
-        <div class="relative aspect-square max-w-[430px] mx-auto mb-6">
-          <svg viewBox="0 0 420 420" class="absolute inset-0 w-full h-full">
-            <defs>
-              <linearGradient id="heroRing" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0%" stop-color="#7c6ff7"/>
-                <stop offset="52%" stop-color="#22d3a5"/>
-                <stop offset="100%" stop-color="#f59e0b"/>
-              </linearGradient>
-            </defs>
-            <circle cx="210" cy="210" r="166" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
-            <circle cx="210" cy="210" r="132" fill="none" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>
-            <circle cx="210" cy="210" r="166" fill="none" stroke="url(#heroRing)" stroke-width="2" class="animate-dash"/>
-            <path d="M120 252 C150 172, 208 158, 284 118" fill="none" stroke="#22d3a5" stroke-width="3" stroke-linecap="round"/>
-            <path d="M122 282 C184 238, 220 238, 304 188" fill="none" stroke="#7c6ff7" stroke-width="3" stroke-linecap="round"/>
+        <a href="assets/Ahmed_Shaban_Full_CV.pdf" target="_blank" rel="noopener"
+          class="shrink-0 inline-flex items-center justify-center w-11 h-11 rounded-full border border-white/12 text-[#f7f8ff] hover:text-[#22d3a5] hover:border-[#22d3a5]/50 transition-colors"
+          aria-label="Open CV">
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 3h7m0 0v7m0-7L10 14m-2-8H5a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-3"/>
           </svg>
+        </a>
+      </div>
 
-          <div class="absolute inset-12 rounded-full border border-white/10 bg-[#07080d]/72 backdrop-blur-xl flex flex-col items-center justify-center text-center px-8">
-            <div class="font-display text-5xl font-bold gradient-text mb-2">AS</div>
-            <p class="text-[#f7f8ff] font-semibold">.NET + Angular</p>
-            <p class="text-[#a8adbd] text-sm mt-2">SaaS, APIs, compliance, dashboards</p>
-          </div>
-
-          <div class="absolute top-5 left-5 px-3 py-2 rounded-lg border border-white/10 bg-white/5 backdrop-blur text-xs text-[#f7f8ff] animate-float">
-            ABP Framework
-          </div>
-          <div class="absolute right-3 top-24 px-3 py-2 rounded-lg border border-white/10 bg-white/5 backdrop-blur text-xs text-[#22d3a5] animate-float" style="animation-delay: 1s">
-            ZATCA Phase 2
-          </div>
-          <div class="absolute bottom-9 left-9 px-3 py-2 rounded-lg border border-white/10 bg-white/5 backdrop-blur text-xs text-[#f59e0b] animate-float" style="animation-delay: 2s">
-            OpenIddict RBAC
-          </div>
-        </div>
-
-        <div class="space-y-3">
-          @for (item of resumeSignals; track item.label) {
-            <div class="relative overflow-hidden rounded-lg border border-white/8 bg-white/[0.035] p-4">
-              <div class="absolute left-0 top-0 h-full w-1" [style.background]="item.tone"></div>
-              <div class="text-[#a8adbd] text-xs mb-1">{{ item.label }}</div>
-              <div class="text-[#f7f8ff] text-sm font-medium">{{ item.value }}</div>
+      <div class="asset-wall grid grid-cols-3 gap-3 mb-6">
+        @for (tile of studioTiles; track tile.title; let i = $index) {
+          <div class="asset-tile min-h-28 md:min-h-36 p-4 flex flex-col justify-between"
+            [style.--delay]="i * 0.35 + 's'"
+            [style.background]="'radial-gradient(circle at 24% 18%, rgba(255,255,255,0.2), transparent 18%), linear-gradient(135deg,' + tile.tone + '66, rgba(7,8,13,0.78) 58%, rgba(255,255,255,0.08))'">
+            <span class="text-[10px] uppercase tracking-widest text-white/70">Module</span>
+            <div>
+              <div class="font-display text-xl md:text-3xl font-bold text-white">{{ tile.title }}</div>
+              <div class="text-white/70 text-xs mt-1">{{ tile.caption }}</div>
             </div>
-          }
-        </div>
+          </div>
+        }
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-3">
+        @for (item of resumeSignals; track item.label) {
+          <div class="rounded-xl border border-white/10 bg-white/[0.045] p-4 backdrop-blur-xl">
+            <div class="w-8 h-1 rounded-full mb-4" [style.background]="item.tone"></div>
+            <div class="text-[#a8adbd] text-xs mb-1">{{ item.label }}</div>
+            <div class="text-[#f7f8ff] text-sm font-medium leading-relaxed">{{ item.value }}</div>
+          </div>
+        }
       </div>
     </div>
   </div>
 
-  <button
-    (click)="scrollToAbout()"
-    class="absolute bottom-8 left-1/2 z-20 -translate-x-1/2 flex flex-col items-center gap-2 text-[#a8adbd] text-xs cursor-pointer hover:text-[#22d3a5] transition-colors">
-    <span>Scroll</span>
-    <svg class="w-4 h-4 animate-bounce" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-    </svg>
-  </button>
+  <div class="relative z-10 border-y border-white/8 bg-white/[0.035] backdrop-blur-xl overflow-hidden">
+    <div class="marquee-track flex w-max gap-8 py-4 text-sm font-semibold uppercase tracking-widest text-[#a8adbd]">
+      <span>ASP.NET Core</span><span>Angular</span><span>ABP Framework</span><span>ZATCA</span><span>OpenIddict</span><span>Azure DevOps</span><span>SQL Server</span><span>PrimeNG</span>
+      <span>ASP.NET Core</span><span>Angular</span><span>ABP Framework</span><span>ZATCA</span><span>OpenIddict</span><span>Azure DevOps</span><span>SQL Server</span><span>PrimeNG</span>
+    </div>
+  </div>
 </section>

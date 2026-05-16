@@ -36,6 +36,16 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  background: radial-gradient(620px circle at var(--pointer-x, 50vw) var(--pointer-y, 40vh), rgba(124, 111, 247, 0.12), transparent 42%);
+  mix-blend-mode: screen;
+}
+
 h1, h2, h3, h4, h5 {
   font-family: 'Syne', sans-serif;
 }
@@ -149,6 +159,88 @@ h1, h2, h3, h4, h5 {
   transform: translateZ(0);
 }
 
+.cinema-shell {
+  position: relative;
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 18px;
+  background:
+    linear-gradient(145deg, rgba(255,255,255,0.12), rgba(255,255,255,0.025)),
+    rgba(7, 8, 13, 0.82);
+  box-shadow: 0 40px 120px rgba(0,0,0,0.42), inset 0 1px 0 rgba(255,255,255,0.14);
+  overflow: hidden;
+}
+
+.cinema-shell::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(124,111,247,0.42), transparent 25%, transparent 75%, rgba(34,211,165,0.36)),
+    linear-gradient(180deg, rgba(255,255,255,0.16), transparent 22%);
+  opacity: 0.75;
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  padding: 1px;
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+.asset-wall {
+  transform: perspective(1000px) rotateX(7deg) rotateY(-10deg);
+  transform-origin: center;
+}
+
+.asset-tile {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.1);
+  background:
+    radial-gradient(circle at 24% 18%, rgba(255,255,255,0.18), transparent 18%),
+    linear-gradient(135deg, rgba(124,111,247,0.28), rgba(34,211,165,0.08) 48%, rgba(245,158,11,0.18));
+}
+
+.asset-tile::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.22), transparent);
+  transform: translateX(-120%);
+  animation: shimmer 5s ease-in-out infinite;
+  animation-delay: var(--delay, 0s);
+}
+
+.scanline {
+  position: relative;
+}
+
+.scanline::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(180deg, transparent 0 7px, rgba(255,255,255,0.035) 8px);
+  opacity: 0.8;
+}
+
+.marquee-track {
+  animation: marquee 28s linear infinite;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+.flow-line {
+  background: linear-gradient(90deg, transparent, rgba(124,111,247,0.75), rgba(34,211,165,0.75), transparent);
+  animation: flow-sweep 3.6s ease-in-out infinite;
+}
+
+.depth-float {
+  animation: depth-float 9s ease-in-out infinite;
+}
+
 .section-band {
   position: relative;
   overflow: hidden;
@@ -218,6 +310,21 @@ h1, h2, h3, h4, h5 {
 
 @keyframes orbit {
   to { transform: rotate(360deg); }
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@keyframes flow-sweep {
+  0%, 100% { opacity: 0.25; transform: scaleX(0.35); }
+  50% { opacity: 1; transform: scaleX(1); }
+}
+
+@keyframes depth-float {
+  0%, 100% { transform: translate3d(0, 0, 0) rotate(0deg); }
+  50% { transform: translate3d(0, -16px, 22px) rotate(1.5deg); }
 }
 
 .animate-float {

@@ -11,8 +11,8 @@
         <h2
           viewportAnimation
           [viewportConfig]="{ animation: 'slideUp', duration: 0.7, delay: 0.1 }"
-          class="font-display text-4xl md:text-5xl font-bold mb-5">
-          Let’s build the next <span class="gradient-text">production system</span>.
+          class="font-display text-4xl md:text-6xl font-bold mb-5 leading-[0.98]">
+          Start the next <span class="gradient-text">production story</span>.
         </h2>
         <p
           viewportAnimation
@@ -28,7 +28,7 @@
           class="space-y-4">
           @for (link of contactLinks; track link.label) {
             <a [href]="link.href"
-              class="contact-item glass-card flex items-center gap-4 p-5 hover:border-[#7c6ff7]/35 transition-all duration-300 group">
+              class="contact-item glass-card spotlight-card flex items-center gap-4 p-5 hover:border-[#7c6ff7]/35 transition-all duration-300 group">
               <span class="w-12 h-12 rounded-lg border border-white/10 bg-white/5 flex items-center justify-center text-[11px] font-bold tracking-wide text-[#22d3a5]">
                 {{ link.icon }}
               </span>
@@ -55,7 +55,7 @@
             <p class="text-[#a8adbd]">I’ll reply within 24 hours.</p>
           </div>
         } @else {
-          <form (ngSubmit)="onSubmit()" class="glass-card p-6 md:p-7 space-y-5">
+          <form (ngSubmit)="onSubmit()" class="cinema-shell p-6 md:p-7 space-y-5">
             <div class="grid sm:grid-cols-2 gap-4">
               <div>
                 <label class="block text-[#a8adbd] text-sm mb-2">Name</label>

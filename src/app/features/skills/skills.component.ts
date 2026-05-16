@@ -1,15 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, computed, signal } from '@angular/core';
 import { NgClass } from '@angular/common';
-import { ViewportAnimationDirective } from '@hive-academy/angular-gsap';
 
 @Component({
   selector: 'app-skills',
   standalone: true,
-  imports: [NgClass, ViewportAnimationDirective],
+  imports: [NgClass],
   templateUrl: './skills.component.html'
 })
 export class SkillsComponent {
-  active = 'All';
+  active = signal('All');
 
   categories = [
     {
@@ -60,13 +59,13 @@ export class SkillsComponent {
     return ['All', ...this.categories.map(category => category.name)];
   }
 
-  get visibleCategories() {
-    return this.active === 'All'
+  visibleCategories = computed(() =>
+    this.active() === 'All'
       ? this.categories
-      : this.categories.filter(category => category.name === this.active);
-  }
+      : this.categories.filter(category => category.name === this.active())
+  );
 
   setActive(filter: string) {
-    this.active = filter;
+    this.active.set(filter);
   }
 }

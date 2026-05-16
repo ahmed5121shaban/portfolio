@@ -9,7 +9,7 @@ export class PortfolioDataService {
     phone: '+20 112 371 1868',
     location: 'Egypt \u00B7 Open to Remote',
     github: 'https://github.com/ahmed5121shaban',
-    linkedin: 'https://linkedin.com/in/ahmed-shaban',
+    linkedin: 'https://www.linkedin.com/in/ahmed-shaban-853172319/',
   };
 
   readonly roles = [
