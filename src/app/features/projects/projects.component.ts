@@ -7,6 +7,8 @@ interface Project {
   description: string;
   tags: string[];
   highlights: string[];
+  category: string;
+  metric: string;
   badge?: string;
   badgeColor?: string;
   accentColor: string;
@@ -20,12 +22,15 @@ interface Project {
 })
 export class ProjectsComponent {
   activeProject = signal<Project | null>(null);
+  activeFilter = signal('All');
 
   projects: Project[] = [
     {
       title: 'LIMS',
       subtitle: 'Quality Laboratory Management System',
       description: 'Enterprise multi-tenant SaaS application for laboratory management with complete data isolation, OAuth2 authentication, and advanced reporting.',
+      category: 'SaaS',
+      metric: '5+ orgs',
       tags: ['ABP Framework', 'ASP.NET Core', 'Angular', 'OpenIddict', 'DevExpress', 'SQL Server'],
       highlights: [
         'Multi-tenant SaaS with zero cross-tenant data leakage',
@@ -41,6 +46,8 @@ export class ProjectsComponent {
       title: 'ZATCA Integration',
       subtitle: 'E-Invoice Integration System',
       description: 'RESTful API integration with Saudi Arabia\'s ZATCA Fatoora platform achieving 100% Phase 2 compliance for electronic invoice submission and clearance.',
+      category: 'Compliance',
+      metric: '100% phase 2',
       tags: ['ASP.NET Core', 'RESTful APIs', 'XML/JSON', 'Cryptographic Signing', 'QR Code'],
       highlights: [
         '100% Phase 2 ZATCA Fatoora compliance achieved',
@@ -53,6 +60,20 @@ export class ProjectsComponent {
       accentColor: '#22D3A5'
     },
   ];
+
+  get filters() {
+    return ['All', ...new Set(this.projects.map(project => project.category))];
+  }
+
+  get visibleProjects() {
+    return this.activeFilter() === 'All'
+      ? this.projects
+      : this.projects.filter(project => project.category === this.activeFilter());
+  }
+
+  setFilter(filter: string) {
+    this.activeFilter.set(filter);
+  }
 
   openDetail(project: Project) {
     this.activeProject.set(project);

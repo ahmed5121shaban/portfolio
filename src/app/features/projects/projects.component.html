@@ -1,66 +1,84 @@
-<section id="projects" class="py-28 px-6 bg-[#080810]">
-  <div class="max-w-6xl mx-auto">
+<section id="projects" class="py-28 px-6 bg-[#07080d] relative overflow-hidden">
+  <div class="absolute inset-0 aurora-bg opacity-30"></div>
+  <div class="relative z-10 max-w-7xl mx-auto">
+    <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-12">
+      <div>
+        <p
+          viewportAnimation
+          [viewportConfig]="{ animation: 'fadeIn', duration: 0.5 }"
+          class="text-[#7c6ff7] text-sm font-semibold tracking-widest uppercase mb-4">
+          Portfolio
+        </p>
+        <h2
+          viewportAnimation
+          [viewportConfig]="{ animation: 'slideUp', duration: 0.7, delay: 0.1 }"
+          class="font-display text-4xl md:text-5xl font-bold max-w-2xl">
+          Key <span class="gradient-text">resume projects</span>
+        </h2>
+      </div>
 
-    <div class="text-center mb-16">
-      <p
-        viewportAnimation
-        [viewportConfig]="{ animation: 'fadeIn', duration: 0.5 }"
-        class="text-[#7C6FF7] text-sm font-semibold tracking-widest uppercase mb-4">
-        Portfolio
-      </p>
-      <h2
-        viewportAnimation
-        [viewportConfig]="{ animation: 'slideUp', duration: 0.7, delay: 0.1 }"
-        class="font-display text-4xl md:text-5xl font-bold">
-        Key <span class="gradient-text">projects</span>
-      </h2>
+      <div class="flex flex-wrap gap-2">
+        @for (filter of filters; track filter) {
+          <button
+            (click)="setFilter(filter)"
+            class="px-4 py-2 rounded-lg border text-sm font-medium transition-all duration-300 cursor-pointer"
+            [class]="activeFilter() === filter ? 'bg-[#22d3a5] text-[#07100d] border-[#22d3a5]' : 'bg-white/5 text-[#a8adbd] border-white/10 hover:text-[#f7f8ff] hover:border-[#22d3a5]/50'">
+            {{ filter }}
+          </button>
+        }
+      </div>
     </div>
 
-    <div class="grid md:grid-cols-2 gap-6">
-      @for (project of projects; track project.title) {
-        <div
+    <div class="grid lg:grid-cols-2 gap-5">
+      @for (project of visibleProjects; track project.title) {
+        <button
           viewportAnimation
           [viewportConfig]="{ animation: 'slideUp', duration: 0.6 }"
           (click)="openDetail(project)"
-          class="glass-card p-8 cursor-pointer hover:border-white/20 hover:-translate-y-2 transition-all duration-300 group relative overflow-hidden">
+          class="glass-card spotlight-card p-0 cursor-pointer hover:-translate-y-2 transition-all duration-300 group relative overflow-hidden text-left">
 
-          <div class="absolute -top-20 -right-20 w-40 h-40 rounded-full blur-3xl opacity-0 group-hover:opacity-20 transition-opacity duration-500"
-            [style.background]="project.accentColor"></div>
-
-          @if (project.badge) {
-            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium mb-4 border"
-              [style.color]="project.badgeColor"
-              [style.border-color]="project.badgeColor + '40'"
-              [style.background]="project.badgeColor + '15'">
-              {{ project.badge }}
-            </span>
-          }
-
-          <h3 class="font-display text-2xl font-bold text-[#F0EFFF] mb-1">{{ project.title }}</h3>
-          <p class="text-[#9D9CB8] text-sm mb-4">{{ project.subtitle }}</p>
-          <p class="text-[#9D9CB8] leading-relaxed mb-6 text-sm">{{ project.description }}</p>
-
-          <div class="flex flex-wrap gap-2 mb-6">
-            @for (tag of project.tags.slice(0, 4); track tag) {
-              <span class="px-2.5 py-1 rounded-lg text-xs bg-white/5 text-[#9D9CB8] border border-white/8">
-                {{ tag }}
+          <div class="grid sm:grid-cols-[0.38fr_1fr] min-h-full">
+            <div class="relative min-h-52 bg-white/[0.035] border-b sm:border-b-0 sm:border-r border-white/8 p-6 flex flex-col justify-between overflow-hidden">
+              <svg viewBox="0 0 220 220" class="absolute inset-0 w-full h-full opacity-75">
+                <circle cx="110" cy="110" r="78" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+                <circle cx="110" cy="110" r="56" fill="none" [attr.stroke]="project.accentColor" stroke-width="2" class="animate-dash"/>
+                <path d="M55 132 C92 70, 118 148, 170 82" fill="none" [attr.stroke]="project.accentColor" stroke-width="4" stroke-linecap="round"/>
+              </svg>
+              <span class="relative inline-flex w-fit items-center px-3 py-1 rounded-lg text-xs font-medium border"
+                [style.color]="project.badgeColor"
+                [style.border-color]="project.badgeColor + '40'"
+                [style.background]="project.badgeColor + '15'">
+                {{ project.badge }}
               </span>
-            }
-            @if (project.tags.length > 4) {
-              <span class="px-2.5 py-1 rounded-lg text-xs bg-white/5 text-[#9D9CB8] border border-white/8">
-                +{{ project.tags.length - 4 }} more
-              </span>
-            }
-          </div>
+              <div class="relative">
+                <div class="text-4xl font-display font-bold text-[#f7f8ff]">{{ project.metric }}</div>
+                <div class="text-[#a8adbd] text-xs mt-1">{{ project.category }} result</div>
+              </div>
+            </div>
 
-          <div class="flex items-center gap-2 text-sm font-medium group-hover:text-[#7C6FF7] transition-colors"
-            [style.color]="project.accentColor">
-            View details
-            <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-            </svg>
+            <div class="p-7">
+              <h3 class="font-display text-2xl font-bold text-[#f7f8ff] mb-1">{{ project.title }}</h3>
+              <p class="text-[#a8adbd] text-sm mb-4">{{ project.subtitle }}</p>
+              <p class="text-[#a8adbd] leading-relaxed mb-6 text-sm">{{ project.description }}</p>
+
+              <div class="flex flex-wrap gap-2 mb-6">
+                @for (tag of project.tags.slice(0, 5); track tag) {
+                  <span class="px-2.5 py-1 rounded-lg text-xs bg-white/5 text-[#a8adbd] border border-white/8">
+                    {{ tag }}
+                  </span>
+                }
+              </div>
+
+              <div class="inline-flex items-center gap-2 text-sm font-semibold transition-colors"
+                [style.color]="project.accentColor">
+                Open case details
+                <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                </svg>
+              </div>
+            </div>
           </div>
-        </div>
+        </button>
       }
     </div>
   </div>
@@ -68,29 +86,36 @@
   @if (activeProject()) {
     <div
       (click)="closeDetail()"
-      class="fixed inset-0 z-50 flex items-center justify-center p-6 bg-black/70 backdrop-blur-sm">
+      class="fixed inset-0 z-50 flex items-center justify-center p-6 bg-black/75 backdrop-blur-md">
       <div
         (click)="$event.stopPropagation()"
-        class="glass-card max-w-xl w-full p-8 relative">
+        class="glass-card max-w-2xl w-full p-7 md:p-8 relative">
         <button (click)="closeDetail()"
-          class="absolute top-4 right-4 text-[#9D9CB8] hover:text-white transition-colors p-2">
+          class="absolute top-4 right-4 text-[#a8adbd] hover:text-white transition-colors p-2 rounded-lg hover:bg-white/5"
+          aria-label="Close project details">
           <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
           </svg>
         </button>
-        <h3 class="font-display text-2xl font-bold text-[#F0EFFF] mb-1">{{ activeProject()!.title }}</h3>
-        <p class="text-[#9D9CB8] text-sm mb-6">{{ activeProject()!.subtitle }}</p>
+        <span class="inline-flex mb-4 px-3 py-1 rounded-lg text-xs font-medium border"
+          [style.color]="activeProject()!.badgeColor"
+          [style.border-color]="activeProject()!.badgeColor + '40'"
+          [style.background]="activeProject()!.badgeColor + '15'">
+          {{ activeProject()!.badge }}
+        </span>
+        <h3 class="font-display text-3xl font-bold text-[#f7f8ff] mb-1">{{ activeProject()!.title }}</h3>
+        <p class="text-[#a8adbd] text-sm mb-6">{{ activeProject()!.subtitle }}</p>
         <ul class="space-y-3 mb-6">
           @for (h of activeProject()!.highlights; track h) {
-            <li class="flex items-start gap-3 text-[#9D9CB8] text-sm">
-              <span class="text-[#22D3A5] mt-0.5 shrink-0">\u2713</span>
+            <li class="flex items-start gap-3 text-[#a8adbd] text-sm leading-relaxed">
+              <span class="text-[#22d3a5] mt-0.5 shrink-0">✓</span>
               {{ h }}
             </li>
           }
         </ul>
         <div class="flex flex-wrap gap-2">
           @for (tag of activeProject()!.tags; track tag) {
-            <span class="px-3 py-1 rounded-full text-xs bg-white/5 text-[#9D9CB8] border border-white/8">
+            <span class="px-3 py-1 rounded-lg text-xs bg-white/5 text-[#a8adbd] border border-white/8">
               {{ tag }}
             </span>
           }

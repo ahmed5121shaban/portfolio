@@ -15,6 +15,7 @@ export class ExperienceComponent {
       period: 'May 2026 \u2013 Present',
       type: 'Full-time \u00B7 Egypt',
       current: true,
+      stack: ['ASP.NET Core', 'Angular', 'REST APIs', 'Clean Architecture'],
       highlights: [
         'Developing full-stack logistics management using ASP.NET Core & Angular',
         'Designing RESTful APIs and relational data models with Clean Architecture',
@@ -27,6 +28,7 @@ export class ExperienceComponent {
       period: 'Feb 2025 \u2013 May 2026',
       type: 'Full-time \u00B7 Egypt',
       current: false,
+      stack: ['ABP Framework', 'OpenIddict', 'EF Core', 'Azure DevOps', 'DevExpress'],
       highlights: [
         'Architected multi-tenant SaaS with ABP Framework across 5+ organizations',
         'Built production REST APIs with ASP.NET Core & Entity Framework Core',
@@ -41,6 +43,7 @@ export class ExperienceComponent {
       period: 'Aug 2025 \u2013 Feb 2026',
       type: 'Part-time \u00B7 Egypt',
       current: false,
+      stack: ['Angular', 'PrimeNG', 'Material', 'NgRx', 'Signals'],
       highlights: [
         'Built responsive Angular apps with PrimeNG & Angular Material',
         'Architected NgRx & Signals state management, eliminating redundant API calls',

@@ -1,19 +1,22 @@
 <header
-  [ngClass]="scrolled() ? 'bg-[#080810]/90 backdrop-blur-md border-b border-white/5 shadow-lg' : 'bg-transparent'"
+  [ngClass]="scrolled() ? 'bg-[#07080d]/88 backdrop-blur-xl border-b border-white/8 shadow-2xl' : 'bg-transparent'"
   class="fixed top-0 left-0 right-0 z-50 transition-all duration-500">
-  <nav class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+  <div class="absolute left-0 bottom-0 h-px bg-gradient-to-r from-[#7c6ff7] via-[#22d3a5] to-[#f59e0b] transition-[width] duration-150"
+    [style.width.%]="progress()"></div>
 
-    <a href="#" class="font-display font-bold text-xl tracking-tight">
+  <nav class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+    <button (click)="scrollTo('#hero')" class="font-display font-bold text-xl tracking-tight cursor-pointer">
       <span class="gradient-text">AS</span>
-      <span class="text-[#F0EFFF] ml-2 font-light text-sm">Ahmed Shaban</span>
-    </a>
+      <span class="text-[#f7f8ff] ml-2 font-light text-sm">Ahmed Shaban</span>
+    </button>
 
-    <ul class="hidden md:flex items-center gap-8">
+    <ul class="hidden md:flex items-center gap-1 rounded-lg border border-white/8 bg-white/[0.035] p-1">
       @for (link of navLinks; track link.href) {
         <li>
           <button
             (click)="scrollTo(link.href)"
-            class="text-[#9D9CB8] hover:text-[#F0EFFF] text-sm font-medium transition-colors duration-200 cursor-pointer">
+            [ngClass]="activeSection() === link.href ? 'bg-white/10 text-[#f7f8ff]' : 'text-[#a8adbd] hover:text-[#f7f8ff]'"
+            class="px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 cursor-pointer">
             {{ link.label }}
           </button>
         </li>
@@ -22,29 +25,32 @@
 
     <a
       href="mailto:ahmed01shaban@gmail.com"
-      class="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-[#7C6FF7] hover:bg-[#5A52D5] text-white text-sm font-medium transition-colors duration-200">
+      class="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-[#7c6ff7] hover:bg-[#5a52d5] text-white text-sm font-medium transition-all duration-200 hover:-translate-y-0.5">
       Hire me
     </a>
 
     <button
       (click)="menuOpen.set(!menuOpen())"
-      class="md:hidden flex flex-col gap-1.5 p-2"
+      class="md:hidden flex flex-col gap-1.5 p-2 rounded-lg border border-white/10 bg-white/5"
       aria-label="Toggle menu">
-      <span [ngClass]="menuOpen() ? 'rotate-45 translate-y-2' : ''" class="block w-5 h-0.5 bg-[#F0EFFF] transition-transform duration-300"></span>
-      <span [ngClass]="menuOpen() ? 'opacity-0' : ''" class="block w-5 h-0.5 bg-[#F0EFFF] transition-opacity duration-300"></span>
-      <span [ngClass]="menuOpen() ? '-rotate-45 -translate-y-2' : ''" class="block w-5 h-0.5 bg-[#F0EFFF] transition-transform duration-300"></span>
+      <span [ngClass]="menuOpen() ? 'rotate-45 translate-y-2' : ''" class="block w-5 h-0.5 bg-[#f7f8ff] transition-transform duration-300"></span>
+      <span [ngClass]="menuOpen() ? 'opacity-0' : ''" class="block w-5 h-0.5 bg-[#f7f8ff] transition-opacity duration-300"></span>
+      <span [ngClass]="menuOpen() ? '-rotate-45 -translate-y-2' : ''" class="block w-5 h-0.5 bg-[#f7f8ff] transition-transform duration-300"></span>
     </button>
   </nav>
 
   @if (menuOpen()) {
-    <div class="md:hidden bg-[#0E0E1A]/95 backdrop-blur-md border-t border-white/5 px-6 py-6 flex flex-col gap-5">
+    <div class="md:hidden bg-[#10131b]/96 backdrop-blur-xl border-t border-white/8 px-6 py-6 flex flex-col gap-2">
       @for (link of navLinks; track link.href) {
-        <button (click)="scrollTo(link.href)" class="text-[#9D9CB8] hover:text-[#F0EFFF] text-base font-medium text-left transition-colors">
+        <button
+          (click)="scrollTo(link.href)"
+          [ngClass]="activeSection() === link.href ? 'bg-white/10 text-[#f7f8ff]' : 'text-[#a8adbd] hover:text-[#f7f8ff]'"
+          class="px-3 py-3 rounded-lg text-base font-medium text-left transition-colors">
           {{ link.label }}
         </button>
       }
       <a href="mailto:ahmed01shaban@gmail.com"
-        class="mt-2 inline-flex justify-center px-4 py-2.5 rounded-lg bg-[#7C6FF7] text-white text-sm font-medium">
+        class="mt-3 inline-flex justify-center px-4 py-2.5 rounded-lg bg-[#7c6ff7] text-white text-sm font-medium">
         Hire me
       </a>
     </div>

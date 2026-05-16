@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { afterNextRender, Component, OnDestroy } from '@angular/core';
 import { NavbarComponent } from './layout/navbar/navbar.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { HeroComponent } from './features/hero/hero.component';
@@ -24,4 +24,32 @@ import { ContactComponent } from './features/contact/contact.component';
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
-export class App {}
+export class App implements OnDestroy {
+  private removeSpotlightListener?: () => void;
+
+  constructor() {
+    afterNextRender(() => {
+      const onPointerMove = (event: PointerEvent) => {
+        const card = (event.target as HTMLElement).closest<HTMLElement>('.spotlight-card');
+
+        if (!card) {
+          return;
+        }
+
+        const rect = card.getBoundingClientRect();
+        const x = ((event.clientX - rect.left) / rect.width) * 100;
+        const y = ((event.clientY - rect.top) / rect.height) * 100;
+
+        card.style.setProperty('--x', `${x}%`);
+        card.style.setProperty('--y', `${y}%`);
+      };
+
+      window.addEventListener('pointermove', onPointerMove, { passive: true });
+      this.removeSpotlightListener = () => window.removeEventListener('pointermove', onPointerMove);
+    });
+  }
+
+  ngOnDestroy() {
+    this.removeSpotlightListener?.();
+  }
+}

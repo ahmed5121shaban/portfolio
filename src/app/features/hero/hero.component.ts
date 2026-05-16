@@ -12,9 +12,21 @@ export class HeroComponent implements OnInit {
   private platformId = inject(PLATFORM_ID);
   isBrowser = false;
 
-  roles = ['Full Stack Developer', '.NET & Angular Expert', 'SaaS Architect', 'Clean Code Advocate'];
+  roles = ['Full Stack Developer', '.NET & Angular Specialist', 'SaaS Platform Builder', 'Clean Architecture Engineer'];
   currentRole = this.roles[0];
   private roleIndex = 0;
+
+  impactStats = [
+    { value: '2+', label: 'Years building production apps' },
+    { value: '5+', label: 'Organizations served' },
+    { value: '100%', label: 'ZATCA Phase 2 compliance' },
+  ];
+
+  resumeSignals = [
+    { label: 'Current focus', value: 'Logistics management at MMB', tone: '#22d3a5' },
+    { label: 'Core stack', value: 'ASP.NET Core, Angular, SQL Server', tone: '#7c6ff7' },
+    { label: 'Architecture', value: 'Multi-tenant SaaS, OAuth2/OIDC, RBAC', tone: '#f59e0b' },
+  ];
 
   ngOnInit() {
     this.isBrowser = isPlatformBrowser(this.platformId);
@@ -32,6 +44,10 @@ export class HeroComponent implements OnInit {
 
   scrollToAbout() {
     document.querySelector('#about')?.scrollIntoView({ behavior: 'smooth' });
+  }
+
+  scrollToProjects() {
+    document.querySelector('#projects')?.scrollIntoView({ behavior: 'smooth' });
   }
 
   downloadCV() {

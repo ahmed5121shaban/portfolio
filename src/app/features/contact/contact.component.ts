@@ -34,8 +34,8 @@ export class ContactComponent {
   }
 
   contactLinks = [
-    { label: 'Email', value: 'ahmed01shaban@gmail.com', href: 'mailto:ahmed01shaban@gmail.com', icon: '\u2709\uFE0F' },
-    { label: 'Phone', value: '+20 112 371 1868', href: 'tel:+201123711868', icon: '\uD83D\uDCDE' },
-    { label: 'Location', value: 'Egypt \u00B7 Open to Remote', href: '#', icon: '\uD83D\uDCCD' },
+    { label: 'Email', value: 'ahmed01shaban@gmail.com', href: 'mailto:ahmed01shaban@gmail.com', icon: 'MAIL' },
+    { label: 'Phone', value: '+20 112 371 1868', href: 'tel:+201123711868', icon: 'TEL' },
+    { label: 'Location', value: 'Egypt \u00B7 Open to Remote', href: '#hero', icon: 'LOC' },
   ];
 }
